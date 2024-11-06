@@ -12,7 +12,7 @@ beforeEach(async () => {
   sut = new AuthenticateUseCase(usersRepository)
 })
 
-describe('Register Use Case', () => {
+describe('Authenticate Use Case', () => {
   it('Should be able to authenticate', async () => {
     await usersRepository.create({
       name: 'John Doe',
