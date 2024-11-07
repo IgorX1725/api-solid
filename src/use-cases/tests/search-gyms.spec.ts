@@ -25,7 +25,7 @@ describe('Search gyms Use Case', () => {
       longitude: -47.063723,
     })
 
-    const { gyms } = await sut.create({
+    const { gyms } = await sut.execute({
       query: 'gym',
     })
 
@@ -50,7 +50,7 @@ describe('Search gyms Use Case', () => {
       longitude: -47.063723,
     })
 
-    const { gyms } = await sut.create({
+    const { gyms } = await sut.execute({
       query: 'description',
     })
 
@@ -68,7 +68,7 @@ describe('Search gyms Use Case', () => {
         longitude: -47.063723,
       })
     }
-    const { gyms } = await sut.create({
+    const { gyms } = await sut.execute({
       query: 'gym',
       page: 2,
     })
