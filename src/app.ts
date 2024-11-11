@@ -3,7 +3,7 @@ import { ZodError } from 'zod'
 import { env } from '@env'
 import fastifyJwt from '@fastify/jwt'
 import { usersRoutes } from './http/controllers/users/routes'
-import { gymsRoutes } from './http/controllers/users/gyms/routes'
+import { gymsRoutes } from './http/controllers/gyms/routes'
 
 export const app = fastify()
 
