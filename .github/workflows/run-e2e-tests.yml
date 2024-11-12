@@ -23,6 +23,15 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+      
+      - run: sudo apt-get install -y postgresql-client
+
+      - run: |
+          echo "Waiting for PostgreSQL to be ready..."
+          until pg_isready -h postgres -U docker; do
+            sleep 1
+          done
+          echo "PostgreSQL is ready!"
 
       - run: npm ci
       - run: npm run test:e2e
