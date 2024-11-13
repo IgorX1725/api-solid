@@ -3,7 +3,7 @@ name: Run E2E Tests
 on: [pull_request]
 
 jobs:
-  rum-unit-tests:
+  run-e2e-tests:
     name: Run E2E Tests
     runs-on: ubuntu-latest
 
@@ -12,11 +12,11 @@ jobs:
         image: bitnami/postgresql
         ports:
           - 5432:5432
-        environment:
-          - POSTGRESQL_USERNAME=docker
-          - POSTGRESQL_PASSWORD=docker
-          - POSTGRESQL_DATABASE=api-solid
-          - POSTGRESQL_REPLICATION_USE_PASSFILE=no
+        env:
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: api-solid
+          POSTGRESQL_REPLICATION_USE_PASSFILE: no
 
     steps: 
       - uses: actions/checkout@v3
@@ -28,5 +28,5 @@ jobs:
       - run: npm ci
       - run: npm run test:e2e
         env:
-          JWT_SECRET: testing
+          JWT_SECRET: "5c290df4306534d78b246fa8cdd693d7041d82d1ac0c457e8fe8f969316cbc40"
           DATABASE_URL: "postgresql://docker:docker@localhost:5432/api-solid?schema=public"
