@@ -8,3 +8,4 @@ services:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
       - POSTGRESQL_DATABASE=api-solid
+      - POSTGRESQL_REPLICATION_USE_PASSFILE=no
